@@ -1,0 +1,65 @@
+{
+  "name": "skill-creator-pro",
+  "version": "1.0.0",
+  "description": "多 Agent 协作的 Skill 创建框架，从粗想法到高质量 Skill 实现",
+  "author": "Skill Creator Pro Framework",
+  "entry": "main.py",
+  "function": "run",
+  "triggers": [
+    "帮我创建一个 skill",
+    "把这个想法落地成 skill",
+    "设计一个 skill",
+    "优化现有的 skill",
+    "创建 skill",
+    "skill-pro create",
+    "skill-pro optimize"
+  ],
+  "parameters": {
+    "idea": {
+      "type": "string",
+      "required": true,
+      "description": "用户粗想法描述"
+    },
+    "skill_name": {
+      "type": "string",
+      "required": false,
+      "description": "Skill 名称"
+    },
+    "priority": {
+      "type": "string",
+      "required": false,
+      "enum": ["P0", "P1", "P2"],
+      "default": "P1",
+      "description": "优先级"
+    },
+    "iteration_mode": {
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "description": "是否启用多轮迭代"
+    }
+  },
+  "examples": [
+    "帮我创建一个需求文档管理的 skill",
+    "把这个想法落地成 skill：记忆宫殿训练",
+    "设计一个 skill，帮助用户管理日常任务",
+    "skill-pro create memory-palace --idea '记忆训练网站'",
+    "skill-pro optimize weather-skill"
+  ],
+  "env": {
+    "DASHSCOPE_API_KEY": {
+      "required": true,
+      "description": "阿里云百炼 API Key"
+    },
+    "OPENCLAW_WORKSPACE": {
+      "required": false,
+      "default": "/Users/pxb/.openclaw/workspace",
+      "description": "OpenClaw 工作区路径"
+    }
+  },
+  "dependencies": [
+    "pyyaml>=6.0",
+    "jinja2>=3.1",
+    "pydantic>=2.0"
+  ]
+}
