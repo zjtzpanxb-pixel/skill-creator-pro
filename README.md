@@ -95,11 +95,8 @@ skill-name/
 ### 环境变量
 
 ```bash
-# 必需：阿里云百炼 API Key
-export DASHSCOPE_API_KEY="your-api-key"
-
-# 可选：OpenClaw 工作区
-export OPENCLAW_WORKSPACE="/Users/pxb/.openclaw/workspace"
+# LLM API Key 从 OpenClaw 系统环境变量读取
+# 无需手动配置
 ```
 
 ### 配置文件
@@ -137,6 +134,9 @@ export OPENCLAW_WORKSPACE="/Users/pxb/.openclaw/workspace"
 
 ## 📝 开发日志
 
+### v1.1 (2026-03-15)
+- ✅ 移除厂商锁定，使用通用模型名称
+
 ### v1.0 (2026-03-15)
 - ✅ 基础框架实现
 - ✅ 8 阶段工作流
@@ -146,10 +146,10 @@ export OPENCLAW_WORKSPACE="/Users/pxb/.openclaw/workspace"
 
 ## 🔧 故障排除
 
-### 问题 1：API Key 未配置
+### 问题 1：依赖缺失
 
 ```bash
-export DASHSCOPE_API_KEY="your-api-key"
+pip install pyyaml jinja2 pydantic
 ```
 
 ### 问题 2：Skill 安装失败
@@ -157,12 +157,6 @@ export DASHSCOPE_API_KEY="your-api-key"
 检查权限：
 ```bash
 ls -la ~/.openclaw/skills/
-```
-
-### 问题 3：依赖缺失
-
-```bash
-pip install pyyaml jinja2 pydantic
 ```
 
 ## 📚 参考资料
@@ -180,7 +174,7 @@ pip install pyyaml jinja2 pydantic
 
 ---
 
-**版本**: v1.0  
+**版本**: v1.1  
 **创建日期**: 2026-03-15  
 **作者**: Skill Creator Pro Framework  
 **许可**: MIT

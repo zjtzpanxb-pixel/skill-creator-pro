@@ -97,7 +97,7 @@ class SkillCreatorOrchestrator:
                 'quality': quality,
                 'execution': {
                     'duration_ms': int(duration),
-                    'model_used': 'qwen3.5-plus',
+                    'model_used': 'default',
                     'token_used': 0,  # 模拟模式
                     'cost': 0.0  # 模拟模式
                 },

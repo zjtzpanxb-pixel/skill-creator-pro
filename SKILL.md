@@ -92,24 +92,24 @@ openclaw skill-pro optimize <skill-name>
 ```yaml
 # LLM 配置
 llm:
-  primary: qwen3.5-plus
-  fallback: qwen2
+  primary: default
+  fallback: fallback
   timeout: 120
   max_retries: 3
 
 # Agent 配置
 agents:
   analyst:
-    model: qwen3.5-plus
+    model: default
     temperature: 0.7
   architect:
-    model: qwen3.5-plus
+    model: default
     temperature: 0.5
   engineer:
-    model: qwen3.5-plus
+    model: default
     temperature: 0.3
   validator:
-    model: qwen3.5-plus
+    model: default
     temperature: 0.4
 
 # 迭代配置
@@ -181,7 +181,7 @@ output:
 
 | 故障 | 应对 |
 |------|------|
-| LLM 超时 | 重试 3 次（指数退避）→ 降级 qwen2 |
+| LLM 超时 | 重试 3 次（指数退避）→ 降级 fallback 模型 |
 | 用户不回答追问 | 静默降级（基于假设继续，标记待确认） |
 | 架构设计冲突 | 启动冲突调解 → 简化架构 |
 | 测试失败 | 自动修复 → 标记问题 → 人工介入 |

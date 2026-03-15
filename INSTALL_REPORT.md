@@ -160,17 +160,14 @@ skill-name/
 ### 环境变量
 
 ```bash
-# 必需：阿里云百炼 API Key（实际使用时需要）
-export DASHSCOPE_API_KEY="your-api-key"
-
-# 可选：OpenClaw 工作区
-export OPENCLAW_WORKSPACE="/Users/pxb/.openclaw/workspace"
+# LLM API Key 从 OpenClaw 系统环境变量读取
+# 无需手动配置
 ```
 
 ### 当前状态
 
 - ✅ **模拟模式** - 无需 API Key 即可测试
-- ⚠️ **实际使用** - 需要配置 DASHSCOPE_API_KEY
+- ✅ **实际使用** - LLM API Key 由 OpenClaw 系统管理
 
 ---
 
@@ -208,110 +205,37 @@ cd /Users/pxb/.openclaw/workspace/skills/skill-creator-pro
 
 ### 问题 1：Skill 未安装
 
-**症状**：对话触发无响应
-
-**解决**：
+检查符号链接：
 ```bash
-# 检查符号链接
 ls -la ~/.openclaw/skills/skill-creator-pro
-
-# 重新安装
-ln -sf /Users/pxb/.openclaw/workspace/skills/skill-creator-pro \
-       ~/.openclaw/skills/skill-creator-pro
 ```
 
-### 问题 2：API Key 错误
+### 问题 2：依赖缺失
 
-**症状**：LLM 调用失败
-
-**解决**：
-```bash
-# 配置 API Key
-export DASHSCOPE_API_KEY="your-api-key"
-
-# 或编辑 .env 文件
-echo "DASHSCOPE_API_KEY=your-api-key" > .env
-```
-
-### 问题 3：依赖缺失
-
-**症状**：导入错误
-
-**解决**：
+安装依赖：
 ```bash
 pip install pyyaml jinja2 pydantic
 ```
 
----
+### 问题 3：权限问题
 
-## 📚 相关文档
-
-| 文档 | 路径 |
-|------|------|
-| Skill 定义 | `SKILL.md` |
-| 使用说明 | `README.md` |
-| 框架文档 | `/workspace/docs/skill-creator-pro-framework.md` |
-| 评审报告 | `/workspace/docs/skill-creator-pro-review.md` |
-
----
-
-## 🎯 下一步建议
-
-### 立即行动
-1. **测试创建 Skill** - 创建一个简单的 skill 验证功能
-2. **配置 API Key** - 配置 DASHSCOPE_API_KEY 启用完整功能
-3. **查看示例** - 参考 requirement-doc-manager 了解完整结构
-
-### 短期优化
-4. **完善 Agent 实现** - 实现真实的多 Agent 协作逻辑
-5. **添加模板库** - 丰富 Skill 模板（天气/任务/查询等）
-6. **集成测试** - 添加自动化测试用例
-
-### 长期规划
-7. **多轮迭代** - 实现真正的多轮追问和优化
-8. **质量提升** - 完善质量评分和验证机制
-9. **性能优化** - 优化 LLM 调用和缓存策略
-
----
-
-## 📝 版本信息
-
-| 项目 | 信息 |
-|------|------|
-| **版本** | v1.0 |
-| **创建日期** | 2026-03-15 |
-| **安装日期** | 2026-03-15 08:55 |
-| **状态** | ✅ 已安装 |
-| **模式** | 模拟模式（可运行） |
-
----
-
-## 🎉 总结
-
-**Skill Creator Pro** 已成功安装并可以运行！
-
-### 核心优势
-- ✅ 多 Agent 协作架构
-- ✅ 8 阶段完整方法论
-- ✅ 主动追问澄清
-- ✅ 自动安装部署
-- ✅ 质量评分系统
-
-### 当前状态
-- ✅ 基础框架实现
-- ✅ 模拟模式可运行
-- ✅ 已安装到 OpenClaw
-- ⚠️ 需要 API Key 启用完整功能
-
-### 可以开始使用了！
-
-试试说：
-```
-帮我创建一个 skill，用于查询天气预报
+```bash
+chmod +x test.sh
+chmod +x scripts/*.sh
 ```
 
 ---
 
-**安装完成时间**: 2026-03-15 08:56  
-**安装位置**: `~/.openclaw/skills/skill-creator-pro`  
-**状态**: ✅ 就绪
+## 📚 下一步
+
+1. **测试 Skill** - 创建一个实际可用的 Skill
+2. **优化 Agent** - 完善多 Agent 协作逻辑
+3. **添加模板** - 丰富 Skill 模板库
+4. **集成 CI/CD** - 自动化测试和部署
+
+---
+
+**版本**: v1.1  
+**安装日期**: 2026-03-15  
+**作者**: Skill Creator Pro Framework  
+**许可**: MIT

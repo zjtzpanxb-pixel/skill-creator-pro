@@ -47,10 +47,6 @@
     "skill-pro optimize weather-skill"
   ],
   "env": {
-    "DASHSCOPE_API_KEY": {
-      "required": true,
-      "description": "阿里云百炼 API Key"
-    },
     "OPENCLAW_WORKSPACE": {
       "required": false,
       "default": "/Users/pxb/.openclaw/workspace",
